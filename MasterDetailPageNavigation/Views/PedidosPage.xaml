@@ -20,18 +20,14 @@
 
 		<SearchBar x:Name="BuscarPedido" Placeholder="Buscar"/>
 
-	    <ListView x:Name="ListPedidos" HasUnevenRows="True"
+	    <ListView x:Name="ListPedidos" HasUnevenRows="True" ItemSelected="PedidosClick"
 	    	IsGroupingEnabled="true"
 			GroupDisplayBinding="{Binding Key}"
 			GroupShortNameBinding="{Binding Key}"
 			>
 	        <ListView.ItemTemplate>
 	            <DataTemplate>
-					<TextCell Text="{Binding PEDIDO}" Detail="{Binding CLINOM}">
-						<TextCell.ContextActions>
-							<MenuItem Text="Mais" Clicked="PedidosClick"></MenuItem>
-						</TextCell.ContextActions>
-					</TextCell>
+					<TextCell Text="{Binding PEDIDO}" Detail="{Binding CLINOM}"></TextCell>
 	            </DataTemplate>
 	        </ListView.ItemTemplate>
 	    </ListView>

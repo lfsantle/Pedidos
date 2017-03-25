@@ -90,12 +90,20 @@ namespace MasterDetailPageNavigation
 			await Navigation.PushAsync(new PedidosCadPage());
 		}
 
-		protected async void PedidosClick(object sender, EventArgs args)
+		protected async void PedidosClick(object sender, SelectedItemChangedEventArgs e)
 		{
-			await Navigation.PushAsync(new PedidosDetalhesPage());
+			if (e.SelectedItem == null)
+			{
+
+				return;
+			}
+			//obtem o item selecionado
+			var Pedido = e.SelectedItem as Pedidos;
+			//deseleciona o item do listview
+			ListPedidos.SelectedItem = null;
+			//chama a pagina UsersDetailsPage
+			await Navigation.PushAsync(new PedidosDetalhesPage(Pedido));
 		}
-
-
 
 	}
 }

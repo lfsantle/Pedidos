@@ -77,6 +77,10 @@
     </Compile>
     <Compile Include="Services\CRUD_Service.cs" />
     <Compile Include="Group.cs" />
+    <Compile Include="Models\PedidoItem.cs" />
+    <Compile Include="Models\FormaPagto.cs" />
+    <Compile Include="Models\Produtos.cs" />
+    <Compile Include="Models\Vendedor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
