@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="MasterDetailPageNavigation.SobreNosPage"
+	Title="Sobre nós" 
+>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+	                iOS="5, 20, 5, 0"
+	                Android="5, 0, 5, 0"
+		/>
+    </ContentPage.Padding>
+
+	<StackLayout Spacing="0"> 
+		<Label 
+		 Text="Fusce pharetra eu orci non laoreet. Aenean eleifend, elit ac condimentum euismod, nisl nisl auctor lectus, et malesuada leo est ac urna. Mauris cursus, turpis id imperdiet laoreet, odio est faucibus lorem, sit amet commodo massa metus tempor nisl. Quisque nec massa a augue rhoncus molestie. Praesent felis ante, venenatis in mi vel, cursus sagittis mi. Nullam dictum, ex mattis rutrum iaculis, nulla libero ornare tortor, sit amet molestie mi arcu egestas elit. Cras purus libero, maximus quis tortor quis, sodales viverra dui."
+         LineBreakMode="WordWrap"
+         VerticalOptions="Center"
+         HorizontalOptions="Center"
+         FontSize="15"
+		 Margin="10,10,10,10" />
+	</StackLayout>
+	
+</ContentPage>

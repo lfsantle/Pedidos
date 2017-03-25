@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="MasterDetailPageNavigation.ClientesDetalhesPage"
+	Title="Detalhes" 
+	BindingContext="MasterDetailPageNavigation.ClientesDetalhesPage"
+>
+
+	<ContentPage.Padding>
+	    <OnPlatform x:TypeArguments="Thickness"
+	                iOS="5, 20, 5, 0"
+					Android="5, 0, 5, 0"
+		/>
+	</ContentPage.Padding>
+
+	
+	 <StackLayout Spacing = "0" >
+		<Label x:Name="Lbl_CLINOM" FontSize="Medium" HorizontalOptions="Center" Margin="5,5,5,5"/>
+
+		<Label Text="Empresa" TextColor="Blue"/>
+		<StackLayout Margin="10,0,0,10">
+			<Label x:Name="Lbl_PESSOA" FontSize="Small"/>
+			<Label x:Name="Lbl_CLICGC" FontSize="Small" />
+			<Label x:Name="Lbl_CLIINS" FontSize="Small"  />
+			<Label x:Name="Lbl_CLICON" FontSize="Small" />	
+			<Label x:Name="Lbl_CLICPF" FontSize="Small" />
+			<Label x:Name="Lbl_CLIRG" FontSize="Small" />
+		</StackLayout>
+		
+		<Label Text="Endereço" TextColor="Blue"/>
+
+		<StackLayout Margin="10,0,0,10">
+			<Label x:Name="Lbl_CLIEND" FontSize="Small" />
+			<Label x:Name="Lbl_CLIBAI" FontSize="Small" />
+			<Label x:Name="Lbl_CLICID" FontSize="Small" />
+			<Label x:Name="Lbl_CLIEST" FontSize="Small" />
+			<Label x:Name="Lbl_CLICEP" FontSize="Small" />
+		</StackLayout>
+
+		<Label Text="Telefone" TextColor="Blue"/>
+
+		<StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10,0,0,10">
+			<Label x:Name="Lbl_CLITEL" FontSize="Small" HorizontalOptions="StartAndExpand" />
+			<Label x:Name="Lbl_CLIFAX" FontSize="Small" HorizontalOptions="EndAndExpand"/>
+		</StackLayout>
+
+    </StackLayout>
+</ContentPage>

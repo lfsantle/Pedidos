@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="MasterDetailPageNavigation.ClientesCadPage"
+	Title="Cadastrar Cliente" 
+>
+
+	<ContentPage.Padding>
+	    <OnPlatform x:TypeArguments="Thickness"
+	                iOS="5, 20, 5, 0"
+					Android="5, 0, 5, 0"
+		/>
+	</ContentPage.Padding>
+
+	<ScrollView>
+	
+		 <StackLayout Spacing = "0" >
+			<Label Text="Preencha os campos abaixo para realizar o cadastro do cliente" Font="Medium" Margin="0,5,0,10"/>
+			
+			<Label Text="Razao Social" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLINOM" Placeholder="Razão Social"/>
+
+			<Label Text="Endereço" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLIEND" Placeholder="Endereço"/>
+
+			<Label Text="Bairro" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLIBAI" Placeholder="Bairro"/>
+				
+			<Label Text="Cidade" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLICID" Placeholder="Cidade"/>
+							
+			<Label Text="Estado" Font="Medium" Margin="0,5,0,0"/>
+			<Picker x:Name="CLIEST" HorizontalOptions="FillAndExpand">
+	        	<Picker.Items>
+		            <x:String>AC</x:String>
+					<x:String>AL</x:String>
+					<x:String>AP</x:String>
+					<x:String>AM</x:String>
+					<x:String>BA</x:String>
+					<x:String>CE</x:String>
+					<x:String>DF</x:String>
+					<x:String>ES</x:String>
+					<x:String>GO</x:String>
+					<x:String>MA</x:String>
+					<x:String>MT</x:String>
+					<x:String>MS</x:String>
+					<x:String>MG</x:String>
+					<x:String>PA</x:String>
+					<x:String>PB</x:String>
+					<x:String>PR</x:String>
+					<x:String>PE</x:String>
+					<x:String>PI</x:String>
+					<x:String>RJ</x:String>
+					<x:String>RN</x:String>
+					<x:String>RS</x:String>
+					<x:String>RO</x:String>
+					<x:String>RR</x:String>
+					<x:String>SC</x:String>
+					<x:String>SP</x:String>
+					<x:String>SE</x:String>
+					<x:String>TO</x:String>
+		        </Picker.Items>
+		    </Picker> 
+
+			<Label Text="CEP" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLICEP" Placeholder="CEP"/>
+							
+			<Label Text="Tipo de cadastro" Font="Medium" Margin="0,5,0,0"/>
+			<Picker x:Name="PESSOA" HorizontalOptions="FillAndExpand">
+	        <Picker.Items>
+		            <x:String>Física</x:String>
+					<x:String>Jurídica</x:String>
+		        </Picker.Items>
+		    </Picker> 
+
+			<Label Text="CNPJ" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLICGC" Placeholder="CNPJ"/>
+									
+			<Label Text="Inscrição Estadual" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLIINS" Placeholder="Razão"/>
+										
+			<Label Text="CPF" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLICPF" Placeholder="CPF"/>
+											
+			<Label Text="RG" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLIRG" Placeholder="RG"/>
+												
+			<Label Text="Telefone" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLITEL" Placeholder="Telefone"/>
+													
+			<Label Text="Fax" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLIFAX" Placeholder="Fax"/>
+
+			<Label Text="Nome para contato" Font="Medium" Margin="0,5,0,0"/>
+			<Entry x:Name="CLICON" Placeholder="Nome para contato"/>
+
+			<Button Text="Gravar Dados" Clicked="GravarCliente" />
+			
+	 	</StackLayout>
+	</ScrollView>
+</ContentPage>
