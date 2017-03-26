@@ -94,7 +94,6 @@ namespace MasterDetailPageNavigation
 		{
 			if (e.SelectedItem == null)
 			{
-
 				return;
 			}
 			//obtem o item selecionado

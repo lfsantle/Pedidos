@@ -3,7 +3,7 @@
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="MasterDetailPageNavigation.PedidosCadPage"
-	Title="Cadastrar Pedido" 
+	Title="Novo Pedido" 
 >
 
 	<ContentPage.Padding>
@@ -12,12 +12,15 @@
 					Android="5, 0, 5, 0"
 		/>
 	</ContentPage.Padding>
-	
-	 <StackLayout Spacing = "0" >
-		<Label Text="Localizar o cliente" Font="Small" />
-		<SearchBar Placeholder="Buscar" />
-		
-		<Button Text="Continuar" Clicked="ClickPedidoCadDet" />
-		
- 	</StackLayout>
+	<ScrollView>
+		<StackLayout Spacing = "0" Margin="10,10,10,10" >
+			<Label Text="Preencha os campos abaixo para realizar um novo pedido." Font="Medium" Margin="0,5,0,10"/>
+			
+			<Label Text="Cliente:" Font="Medium" Margin="0,5,0,0"/>
+			<Button x:Name="Bt_EscCli" Text="Escolher o cliente" />
+			<Entry x:Name="CLINOM" Placeholder="Escolha o cliente" IsVisible="false" />
+
+			
+		</StackLayout>
+	</ScrollView>
 </ContentPage>

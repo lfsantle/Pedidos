@@ -81,6 +81,7 @@
     <Compile Include="Models\FormaPagto.cs" />
     <Compile Include="Models\Produtos.cs" />
     <Compile Include="Models\Vendedor.cs" />
+    <Compile Include="Views\PedidoNovoPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

@@ -14,5 +14,10 @@ namespace MasterDetailPageNavigation
 		{
 			await Navigation.PushAsync(new PedidosCadDetPage());
 		}
+
+		protected async void ClickEscolherCliente(object sender, EventArgs args)
+		{
+			await DisplayAlert("Clicou","viu","SAIR");
+		}
 	}
 }
