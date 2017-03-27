@@ -36,7 +36,7 @@ namespace MasterDetailPageNavigation
 			}
 			catch (Exception ex)
 			{
-				DisplayAlert("Erro ao Calcular Unit", ex.Message, "OK");
+				//DisplayAlert("Erro ao Calcular Unit", ex.Message, "OK");
 			}
 			try
 			{
@@ -44,7 +44,7 @@ namespace MasterDetailPageNavigation
 			}
 			catch (Exception ex)
 			{
-				DisplayAlert("Erro ao Calcular Qtde", ex.Message, "OK");
+				//DisplayAlert("Erro ao Calcular Qtde", ex.Message, "OK");
 			}
 
 			subtotal = valor * qtde;

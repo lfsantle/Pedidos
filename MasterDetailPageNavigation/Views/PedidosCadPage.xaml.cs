@@ -29,7 +29,8 @@ namespace MasterDetailPageNavigation
 					if (!string.IsNullOrEmpty(item.UNIT))
 					{
 						valor = Convert.ToDouble(item.UNIT.Replace('.',','));
-						subtotal += valor;
+						int qtde = Convert.ToInt32(item.QUANT);
+						subtotal += valor * qtde;
 					}
 				}
 				catch (Exception ex)

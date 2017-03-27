@@ -38,8 +38,9 @@
 		            <DataTemplate>
 		                <TextCell Text="{Binding DESCRICAO}" Detail="{Binding DETALHE}">
 							<TextCell.ContextActions>
-								<MenuItem Text="Editar" Clicked="ProdutoEditar" CommandParameter="{Binding CODPROD}"></MenuItem>
 								<MenuItem Text="Excluir" Clicked="ProdutoExcluir" CommandParameter="{Binding CODPROD}"></MenuItem>
+								<MenuItem Text="Editar" Clicked="ProdutoEditar" CommandParameter="{Binding CODPROD}"></MenuItem>
+
 							</TextCell.ContextActions>
 						</TextCell>
 		            </DataTemplate>
