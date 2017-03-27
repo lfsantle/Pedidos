@@ -21,20 +21,35 @@ namespace MasterDetailPageNavigation
 			Lbl_CodBarra.Text = PRODSelecionado.CODBAR;
 			Lbl_CODPROD.Text = PRODSelecionado.CODIGO;
 			Qtde.Text = "1";
-
+			Calcular();
 			Qtde.TextChanged += Qtde_TextChanged;
 		}
 
 		private void Calcular()
 		{
-			double subtotal;
+			double subtotal = 0;
+			double valor = 0;
+			int qtde = 1;
 			try
 			{
-				double valor = Convert.ToDouble(Lbl_UNIT.Text.Replace('.', ','));
-				int qtde = Convert.ToInt32(Qtde.Text);
-				subtotal = valor * qtde;
-				Subtotal.Text = "R$ " + subtotal.ToString();
+				valor = Convert.ToDouble(Lbl_UNIT.Text.Replace("R$ ","").Replace('.', ','));
 			}
+			catch (Exception ex)
+			{
+				DisplayAlert("Erro ao Calcular Unit", ex.Message, "OK");
+			}
+			try
+			{
+				qtde = Convert.ToInt32(Qtde.Text);
+			}
+			catch (Exception ex)
+			{
+				DisplayAlert("Erro ao Calcular Qtde", ex.Message, "OK");
+			}
+
+			subtotal = valor * qtde;
+			Subtotal.Text = "R$ " + subtotal.ToString();
+			Qtde.Text = qtde.ToString();
 		}
 
 		private void Qtde_TextChanged(object sender, TextChangedEventArgs e)
@@ -60,7 +75,7 @@ namespace MasterDetailPageNavigation
 					TOTAL = Subtotal.Text.Replace("R$ ", "").Replace(',', '.'),
 					DETALHE = detalhe
 				});
-				await Navigation.PushAsync(new PedidosCadPage());
+				await Navigation.PushAsync(new PedidosCadPage("adicionado"));
 			}
 
 		}

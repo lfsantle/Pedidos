@@ -52,6 +52,12 @@ namespace MasterDetailPageNavigation
 			AtualizarDados();
 		}
 
+		public PedidosCadPage(string texto)
+		{
+			InitializeComponent();
+			AtualizarDados();
+		}
+
 
 		public PedidosCadPage(Produtos PRODSelecionado)
 		{
@@ -121,6 +127,12 @@ namespace MasterDetailPageNavigation
 		protected async void ProdutoExcluir(object sender, EventArgs args)
 		{
 			await DisplayAlert("Excluir", "Não implementado", "OK");
+		}
+
+		protected async void GravarPedido(object sender, EventArgs args)
+		{
+			await DisplayAlert("Gravar", "Não implementado", "OK");
+
 		}
 	}
 }
