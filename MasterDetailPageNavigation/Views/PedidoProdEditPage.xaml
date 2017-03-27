@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="MasterDetailPageNavigation.PedidoProdEditPage"
+	Title="">
+
+	<ContentPage.Padding>
+	    <OnPlatform x:TypeArguments="Thickness"
+	                iOS="5, 20, 5, 0"
+					Android="5, 0, 5, 0"
+		/>
+	</ContentPage.Padding>
+
+	
+	 <StackLayout Spacing = "0" >
+		<Label x:Name="Lbl_PRODDESC" FontSize="Medium" HorizontalOptions="Center" Margin="5,5,5,5"/>
+
+		<Label Text="Valor Unitário:" TextColor="Blue"/>
+		<StackLayout Margin="10,0,0,10">
+			<Label x:Name="Lbl_UNIT" FontSize="Small"/>
+		</StackLayout>
+		
+		<Label Text="Qtde:" TextColor="Blue"/>
+		<StackLayout Margin="10,0,0,10">
+			<Entry Keyboard="Numeric" x:Name="Qtde" />
+		</StackLayout>
+
+		<Label Text="SubTotal:" TextColor="Blue"/>
+		<StackLayout Margin="10,0,0,10">
+			<Label x:Name="Subtotal" />
+		</StackLayout>
+
+		<Label Text="Cód. de Barras:" TextColor="Blue"/>
+		<StackLayout Margin="10,0,0,10">
+			<Label x:Name="Lbl_CodBarra" FontSize="Small"/>
+		</StackLayout>
+
+		<Label Text="Cód. Produto:" TextColor="Blue"/>
+		<StackLayout Margin="10,0,0,10">
+			<Label x:Name="Lbl_CODPROD" FontSize="Small"/>
+		</StackLayout>
+		
+		<Button Text="Salvar" Clicked="GravarProduto" />
+
+    </StackLayout>
+</ContentPage>

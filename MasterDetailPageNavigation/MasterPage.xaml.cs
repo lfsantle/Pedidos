@@ -26,6 +26,12 @@ namespace MasterDetailPageNavigation
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
+				Title = "Produtos",
+				IconSource = "pedidos.png",
+				TargetType = typeof(ProdutosPage)
+			});
+			masterPageItems.Add(new MasterPageItem
+			{
 				Title = "Sobre nós",
 				IconSource = "sobre.png",
 				TargetType = typeof(SobreNosPage)

@@ -12,15 +12,39 @@
 					Android="5, 0, 5, 0"
 		/>
 	</ContentPage.Padding>
+
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Gravar" Clicked="GravarPedido" Priority="0" x:Name="ToolbarAdicionar"></ToolbarItem>
+	</ContentPage.ToolbarItems>
+	
 	<ScrollView>
 		<StackLayout Spacing = "0" Margin="10,10,10,10" >
 			<Label Text="Preencha os campos abaixo para realizar um novo pedido." Font="Medium" Margin="0,5,0,10"/>
 			
+			<Button Clicked="BTEscolherCliente" Text="Escolher o cliente" />
 			<Label Text="Cliente:" Font="Medium" Margin="0,5,0,0"/>
-			<Button x:Name="Bt_EscCli" Text="Escolher o cliente" />
-			<Entry x:Name="CLINOM" Placeholder="Escolha o cliente" IsVisible="false" />
+			<Label x:Name="CLINOM" Font="Medium" TextColor="Green" Margin="0,15,0,0"/>
 
-			
+			<Button Clicked="BTAdicionarProduto" Text="Adicionar produto" />
+			<Label Text="Qtde Produtos:" Font="Medium" Margin="0,5,0,0"/>
+			<Label x:Name="Qtde" Font="Medium" TextColor="Green" Margin="0,15,0,0"/>
+			<Label Text="Subtotal:" Font="Medium" Margin="0,5,0,0"/>
+			<Label x:Name="SubTOT" Font="Medium" TextColor="Green" Margin="0,15,0,0"/>
+			<Label Text="Produtos Selecionados:" Font="Medium" Margin="0,5,0,0"/>
+			<ListView x:Name="ListProdutos" HasUnevenRows="True" 
+
+				>
+		        <ListView.ItemTemplate>
+		            <DataTemplate>
+		                <TextCell Text="{Binding DESCRICAO}" Detail="{Binding DETALHE}">
+							<TextCell.ContextActions>
+								<MenuItem Text="Editar" Clicked="ProdutoEditar" CommandParameter="{Binding CODPROD}"></MenuItem>
+								<MenuItem Text="Excluir" Clicked="ProdutoExcluir" CommandParameter="{Binding CODPROD}"></MenuItem>
+							</TextCell.ContextActions>
+						</TextCell>
+		            </DataTemplate>
+		        </ListView.ItemTemplate>
+		    </ListView>
 		</StackLayout>
 	</ScrollView>
 </ContentPage>

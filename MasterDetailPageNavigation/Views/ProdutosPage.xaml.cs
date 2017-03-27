@@ -4,38 +4,37 @@ using System.Diagnostics;
 using Xamarin.Forms;
 using System;
 using System.Linq;
-
+using MasterDetailPageNavigation.Models;
 
 namespace MasterDetailPageNavigation
 {
-	public partial class ClientesPage : ContentPage
+	public partial class ProdutosPage : ContentPage
 	{
-
-		public List<Clientes> _listaClientes;
+		
+		public List<Produtos> _listaProdutos;
 		public string funcao;
 
-		public ClientesPage()
+		public ProdutosPage()
 		{
 			InitializeComponent();
-			CarregarClientes();
-			this.Title = "Clientes";
+			CarregarProdutos();
+			this.Title = "Consulta Produtos";
 		}
 
-		public ClientesPage(string retorno)
+		public ProdutosPage(string retorno)
 		{
 			InitializeComponent();
-			CarregarClientes();
-
+			CarregarProdutos();
 			funcao = retorno;
-			this.Title = "Pedidos - Selecione um cliente";
+			this.Title = "Selecione um Produto";
 		}
 
-		private void CarregarClientes()
+		private void CarregarProdutos()
 		{
 			ApiCall apiCall = new ApiCall();
 
 			//Aqui buscamos os 10 com as maiores Notas e Iniciamos uma Thread
-			apiCall.GetResponse<List<Clientes>>("Clientes.php").ContinueWith(t =>
+			apiCall.GetResponse<List<Produtos>>("Produtos.php").ContinueWith(t =>
 			{
 				//O ContinueWith é responsavel por fazer algo após o request finalizar
 
@@ -66,82 +65,72 @@ namespace MasterDetailPageNavigation
 					Device.BeginInvokeOnMainThread(() =>
 					{
 						// joga os valores direto na Lista
-						//ListClientes.ItemsSource = t.Result;
+						//ListProdutos.ItemsSource = t.Result;
 
 						// joga os valores na  lista LOCAL
-						_listaClientes = new List<Clientes>();
-						_listaClientes = t.Result;
+						_listaProdutos = new List<Produtos>();
+						_listaProdutos = t.Result;
+
 						// joga os valores na listview e chama a função pra ordenar e agroupar
-						ListClientes.ItemsSource = ListarClientes();
+						ListProdutos.ItemsSource = ListarProdutos();
+						//ListProdutos.ItemsSource = t.Result;
+
 					});
 
 				}
 			});
 
-			CliBusca.TextChanged += Busca_TextChanged;
+			ProdBusca.TextChanged += Busca_TextChanged;
 		}
 
 		private void Busca_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			ListClientes.ItemsSource = ListarClientes(CliBusca.Text);
+			ListProdutos.ItemsSource = ListarProdutos(ProdBusca.Text);
 		}
 
-		public IEnumerable<Group<char, Clientes>> ListarClientes(string filtro = "")
+		public IEnumerable<Group<char, Produtos>> ListarProdutos(string filtro = "")
 		{
-			IEnumerable<Clientes> clientesFiltrados = _listaClientes;
+			IEnumerable<Produtos> produtosFiltrados = _listaProdutos.Where(l => (l.DESCPRO.Trim().Length > 0));
 
 			if (!string.IsNullOrEmpty(filtro))
 			{
-				clientesFiltrados = _listaClientes.Where(l => (l.CLINOM.ToLower().Contains(filtro.ToLower())));
+				produtosFiltrados = _listaProdutos.Where(l => (l.DESCPRO.ToLower().Contains(filtro.ToLower())));
 			}
 
-			return from ListClientes in clientesFiltrados
-				   orderby ListClientes.CLINOM
-				   group ListClientes by ListClientes.CLINOM[0] into grupos
-				   select new Group<char, Clientes>(grupos.Key, grupos);
+			return from ListProdutos in produtosFiltrados
+				   orderby ListProdutos.DESCPRO
+				   group ListProdutos by ListProdutos.DESCPRO[0] into grupos
+				   select new Group<char, Produtos>(grupos.Key, grupos)
+				;
 		}
 
-		protected async void AddCliente(object sender, EventArgs args)
-		{
-			await Navigation.PushAsync(new ClientesCadPage());
-		}
-
-		/*
-		protected async void ClientesClick(object sender, EventArgs args)
-		{
-
-			await Navigation.PushAsync(new ClientesDetalhesPage());
-		}
-		*/
-
-		private async void ClientesClick(object sender, SelectedItemChangedEventArgs e)
+		private async void ProdutosClick(object sender, SelectedItemChangedEventArgs e)
 		{
 			if (e.SelectedItem == null)
 			{
 				return;
 			}
 			//obtem o item selecionado
-			var Cliente = e.SelectedItem as Clientes;
+			var Produto = e.SelectedItem as Produtos;
 			//deseleciona o item do listview
-			ListClientes.SelectedItem = null;
+			ListProdutos.SelectedItem = null;
 
 			if (string.IsNullOrEmpty(funcao))
 			{
 
 				//chama a pagina UsersDetailsPage
-				await Navigation.PushAsync(new ClientesDetalhesPage(Cliente));
+				//await Navigation.PushAsync(new ClientesDetalhesPage(Cliente));
+				await DisplayAlert("Página Detalhe", "Aguardando implementação", "OK");
 			}
 			else
 			{
 				switch (funcao)
 				{
 					case "pedidos":
-						await Navigation.PushAsync(new PedidosCadPage(Cliente));
+						await Navigation.PushAsync(new PedidoProdEditPage(Produto));
 						break;
 				}
 			}
 		}
-
-
 	}
 }

@@ -82,6 +82,13 @@
     <Compile Include="Models\Produtos.cs" />
     <Compile Include="Models\Vendedor.cs" />
     <Compile Include="Views\PedidoNovoPage.cs" />
+    <Compile Include="Views\ProdutosPage.xaml.cs">
+      <DependentUpon>ProdutosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PedidosClass.cs" />
+    <Compile Include="Views\PedidoProdEditPage.xaml.cs">
+      <DependentUpon>PedidoProdEditPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -116,6 +123,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ClientesDetalhesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProdutosPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PedidoProdEditPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

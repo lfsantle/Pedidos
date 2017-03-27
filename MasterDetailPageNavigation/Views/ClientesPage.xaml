@@ -13,7 +13,7 @@
     </ContentPage.Padding>
 
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Name="Adicionar" Clicked="AddCliente" Priority="0"></ToolbarItem>
+		<ToolbarItem Name="Adicionar" Clicked="AddCliente" Priority="0" x:Name="ToolbarAdicionar"></ToolbarItem>
 	</ContentPage.ToolbarItems>
 
 	<StackLayout Spacing="0"> 
