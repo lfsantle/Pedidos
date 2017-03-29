@@ -22,8 +22,8 @@
 		</StackLayout>
 		
 		<Label Text="Qtde:" TextColor="Blue"/>
-		<StackLayout Margin="10,0,0,10">
-			<Entry Keyboard="Numeric" x:Name="Qtde" />
+		<StackLayout Margin="10,10,10,10">
+			<Entry Keyboard="Numeric" x:Name="Qtde"  HorizontalTextAlignment="Center" FontSize="Medium" />
 		</StackLayout>
 
 		<Label Text="SubTotal:" TextColor="Blue"/>
