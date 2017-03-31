@@ -6,7 +6,7 @@ namespace MasterDetailPageNavigation
 	{
 		public App ()
 		{
-			MainPage = new MasterDetailPageNavigation.MainPage();
+			MainPage = new MasterDetailPageNavigation.Login();
 		}
 
 		protected override void OnStart ()

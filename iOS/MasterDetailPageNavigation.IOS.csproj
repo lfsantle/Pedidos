@@ -123,6 +123,7 @@
     <BundleResource Include="Resources\pedidos.png" />
     <BundleResource Include="Resources\sobre.png" />
     <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\bglogin.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
