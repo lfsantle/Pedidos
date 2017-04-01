@@ -29,7 +29,7 @@ namespace MasterDetailPageNavigation
 			masterPageItems.Add(new MasterPageItem
 			{
 				Title = "Produtos",
-				IconSource = "pedidos.png",
+				IconSource = "produtos.png",
 				TargetType = typeof(ProdutosPage)
 			});
 			masterPageItems.Add(new MasterPageItem
