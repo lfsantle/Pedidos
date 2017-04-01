@@ -7,7 +7,7 @@ namespace MasterDetailPageNavigation
 	{
 		public static DateTime _UserDataHora;
 		public static bool _UserLogado = false;
-		public static Vendedor _VendedorLogado;
+		public static Vendedor _VendedorLogado = new Vendedor();
 
 	}
 }

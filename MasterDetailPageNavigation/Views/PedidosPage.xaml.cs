@@ -18,8 +18,10 @@ namespace MasterDetailPageNavigation
 
 			ApiCall apiCall = new ApiCall();
 
+			string caminho = "Pedidos.php?CODIGO=" + UsuarioClass._VendedorLogado.COD;
+
 			//Aqui buscamos os 10 com as maiores Notas e Iniciamos uma Thread
-			apiCall.GetResponse<List<Pedidos>>("Pedidos.php").ContinueWith(t =>
+			apiCall.GetResponse<List<Pedidos>>(caminho).ContinueWith(t =>
 			{
 				//O ContinueWith é responsavel por fazer algo após o request finalizar
 
@@ -55,7 +57,16 @@ namespace MasterDetailPageNavigation
 						_listaPedidos = new List<Pedidos>();
 						_listaPedidos = t.Result;
 						// joga os valores na listview e chama a função pra ordenar e agroupar
-						ListPedidos.ItemsSource = ListarPedidos();
+						if (_listaPedidos.Count() > 1)
+						{
+							BuscarPedido.IsEnabled = true;
+							ListPedidos.ItemsSource = ListarPedidos();
+						}
+						else
+						{
+							BuscarPedido.IsEnabled = false;
+							DisplayAlert("Aviso", "Nenhum pedido registrado em seu usuário.", "OK");
+						}
 					});
 
 
@@ -76,13 +87,12 @@ namespace MasterDetailPageNavigation
 
 			if (!string.IsNullOrEmpty(filtro))
 			{
-				pedidosFiltrados = _listaPedidos.Where(l => (l.CLINOM.ToLower().Contains(filtro.ToLower()) || l.PEDIDO.ToLower().Contains(filtro.ToLower())));
+				pedidosFiltrados = _listaPedidos.Where(l => (l.CLINOM.ToLower().Contains(filtro.ToLower()) || l.SEQ.ToLower().Contains(filtro.ToLower())));
 			}
-
-			return from ListPedidos in pedidosFiltrados
-				   orderby ListPedidos.CLINOM
-				   group ListPedidos by ListPedidos.CLINOM[0] into grupos
-				   select new Group<char, Pedidos>(grupos.Key, grupos);
+				return from ListPedidos in pedidosFiltrados
+					   orderby ListPedidos.CLINOM
+					   group ListPedidos by ListPedidos.CLINOM[0] into grupos
+					   select new Group<char, Pedidos>(grupos.Key, grupos);
 		}
 
 		protected async void AddPedido(object sender, EventArgs args)

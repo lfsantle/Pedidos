@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\JsonRetorno.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

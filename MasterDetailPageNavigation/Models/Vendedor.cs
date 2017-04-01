@@ -7,4 +7,5 @@ namespace MasterDetailPageNavigation.Models
 		public string NOME { get; set; } //- nome
 		public string SENHA { get; set; } //- senha
 	}
+
 }

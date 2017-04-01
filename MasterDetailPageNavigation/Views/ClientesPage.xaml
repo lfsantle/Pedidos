@@ -27,7 +27,7 @@
 			>
 	        <ListView.ItemTemplate>
 	            <DataTemplate>
-	                <TextCell Text="{Binding CLINOM}" Detail="{Binding CLICID}"></TextCell>
+	                <TextCell Text="{Binding CLINOM}" Detail="{Binding CLIFAN}"></TextCell>
 	            </DataTemplate>
 	        </ListView.ItemTemplate>
 	    </ListView>

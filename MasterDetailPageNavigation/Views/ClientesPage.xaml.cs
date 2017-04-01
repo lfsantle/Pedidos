@@ -92,7 +92,7 @@ namespace MasterDetailPageNavigation
 
 			if (!string.IsNullOrEmpty(filtro))
 			{
-				clientesFiltrados = _listaClientes.Where(l => (l.CLINOM.ToLower().Contains(filtro.ToLower())));
+				clientesFiltrados = _listaClientes.Where(l => (l.CLINOM.ToLower().Contains(filtro.ToLower()) || l.CLIFAN.ToLower().Contains(filtro.ToLower())));
 			}
 
 			return from ListClientes in clientesFiltrados

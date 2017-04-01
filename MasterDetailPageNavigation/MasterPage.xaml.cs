@@ -11,6 +11,8 @@ namespace MasterDetailPageNavigation
 		{
 			InitializeComponent();
 
+			Lbl_bemvindo.Text = "Bem vindo, " + UsuarioClass._VendedorLogado.NOME;
+
 			var masterPageItems = new List<MasterPageItem>();
 			masterPageItems.Add(new MasterPageItem
 			{

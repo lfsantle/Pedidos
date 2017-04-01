@@ -18,6 +18,7 @@ namespace MasterDetailPageNavigation
 		public string CLITEL { get; set; }
 		public string CLIFAX { get; set; }
 		public string CLICON { get; set; }
+		public string CLIFAN { get; set; }
 	}
 
 
